@@ -1,40 +1,27 @@
 <template>
-hello world!  
-  <div>name:{{ bot_name }}</div>
-  <div>rating:{{ bot_rating }}</div>
+  <NavBar />
 </template>
 
 <script>
 
-import $ from 'jquery';
-import { ref } from 'vue';
+
+import NavBar from './components/NavBar.vue'
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap"
 
 
 export default{
-  name: "App",
-  setup: () => {
-    let bot_name = ref("");
-    let bot_rating = ref("");
-
-    $.ajax({
-      url: "http://localhost:3000/pk/getbotinfo/",
-      type: "get",
-      success: resp => {
-        console.log(resp);
-        bot_name.value = resp.name;
-        bot_rating.value = resp.rating;
-      }
-    });
-    return {
-      bot_name,
-      bot_rating
-    }
+  components:{
+    NavBar
   }
-
 
 }
 </script>
 
 <style>
+  body{
+    background-image: url("./assets/yoyo鹿鸣.png");
+    background-size: cover;
+  }
 
 </style>
